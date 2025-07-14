@@ -7,6 +7,8 @@ public class PotionView : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        EventService.Instance.OnPotionConsumed.InvokeEvent(potionEffect);
+
         GameService.Instance.GetInstructionView().HideInstruction();
         GameService.Instance.GetSoundView().PlaySoundEffects(soundType);
         gameObject.SetActive(false);
